@@ -1,37 +1,32 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar class="bg-white">
+      <q-toolbar class="bg-[#131313]">
         <q-toolbar-title>
-          <q-img
-            src="icons/TopUponlineGame.png"
-            class="h-[46.5px] w-[370px]"
-          ></q-img>
+          <div class="row justify-center">
+            <div class="col-12 col-md-6">
+              <q-btn
+                color="white"
+                flat
+                round
+                dense
+                icon="menu"
+                class="q-mr-md"
+              />
+
+              <q-img src="icons/Top.png" class="h-[45px] w-[100px] padding" />
+              <q-btn flat round icon="search" class="float-right" />
+              <q-btn
+                flat
+                round
+                icon="notifications"
+                class="float-right"
+              ></q-btn>
+            </div>
+          </div>
         </q-toolbar-title>
-        <q-tabs
-          v-model="tab"
-          dense
-          class="text-grey"
-          active-color="primary"
-          indicator-color="primary"
-          align="justify"
-          narrow-indicator
-        >
-          <q-tab name="Home" class="text-gray-600" no-caps label="Home" />
-          &nbsp;
-          <q-tab name="About" class="text-gray-600" no-caps label="About" />
-          &nbsp;
-          <q-tab name="Contact" class="text-gray-600" no-caps label="Contact" />
-          &nbsp;
-        </q-tabs>
-        <q-btn
-          class="background: linear-gradient(90deg, #6549D5 2.49%, rgba(227, 63, 161, 0.91) 45.31%, #FB5343 100%)"
-          no-caps
-          label="Sign In"
-        />
       </q-toolbar>
     </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -40,6 +35,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+
 import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
