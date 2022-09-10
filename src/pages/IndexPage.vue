@@ -12,8 +12,7 @@
           <p class="text-center">
             easy game recharge just a few steps need this websites
           </p>
-          <h1 class="text-[100px]">PLOY</h1>
-          <h1 class="text-[100px]">Ploy</h1>
+
           <br />
           <br />
           <br />
