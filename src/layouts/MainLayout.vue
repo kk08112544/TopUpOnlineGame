@@ -57,7 +57,6 @@
             <q-carousel-slide :name="3" img-src="icons/Choose.png" />
             <q-carousel-slide :name="4" img-src="icons/Quick.png" />
           </q-carousel>
-          <!-- <q-img src="icons/yet.png" style="height: 250px" /> -->
         </div>
         <div
           class="col q-gutter-xl"
@@ -78,19 +77,12 @@
         </div>
       </div>
     </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+    <router-view />
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-
-import EssentialLink from "components/EssentialLink.vue";
-
-const linksList = [];
 
 export default defineComponent({
   name: "MainLayout",
@@ -101,7 +93,6 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
 
     return {
-      essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
