@@ -19,9 +19,9 @@
                 style="height: 170px; max-width: 700px; border-radius: 30px"
               />
             </div>
-            <q-img src="icons/Safe & easy.png" class="q-mt-md" />
-            <p class="text-center">
-              easy game recharge just a few steps need this websites
+            <q-img src="icons/safe & easy3.png" class="q-mt-md" />
+            <p class="text-center text-white">
+              Easy game recharge just a few steps need this websites
             </p>
           </div>
 
