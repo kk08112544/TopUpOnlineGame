@@ -75,10 +75,8 @@
 </template>
 <script>
 import { defineComponent, ref } from "vue";
-
 export default defineComponent({
   name: "TopUpDetailsPage",
-
   setup() {
     const Pay = [
       {
@@ -123,3 +121,4 @@ export default defineComponent({
   border-radius: 20px;
 }
 </style>
+Footer © 2022 GitHub, Inc. Footer navigation Terms Privacy
