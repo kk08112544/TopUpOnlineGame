@@ -1,6 +1,6 @@
 <template>
   <q-page
-    class="flex justify-center items-center flex-col gap-20 bg-[#B18BEF] h-[100vh]"
+    class="flex justify-center items-center bg flex-col gap-20 w-full bg-[#B18BEF] h-[100vh]"
   >
     <div class="flex-row flex justify-center items-center gap-20 w-full">
       <div class="flex-col flex">
@@ -8,8 +8,6 @@
         <q-img src="icons/people.png" class="w-[300px]" />
       </div>
       <div class="flex-col flex">
-        <!-- margin-top: 5px; -->
-        <!-- margin-bottom: 10px; -->
         <div class="space-y-5 mb-10 text-center">
           <span class="text-[30px]">Sign In</span>
           <q-input
@@ -42,7 +40,15 @@
         </div>
 
         <div class="flex w-full gap-3">
-          <q-btn class="flex-1" color="green" no-caps label="login" />
+          <q-btn
+            class="flex-1"
+            color="green"
+            no-caps
+            label="login"
+            clickable
+            v-ripple
+            to="/"
+          />
           <q-btn
             class="flex-1"
             color="red"
@@ -57,21 +63,32 @@
     </div>
   </q-page>
 </template>
-<!-- <style scoped>
-.bg {
-  background: radial-gradient(
-    249.11% 67.08% at 52.55% 46.23%,
-    #6214e2 0%,
-    #e2d4f9 0.01%,
-    #e2d4f9 63.02%,
-    #ebe1fb 73.96%,
-    #f7f3fd 89.58%,
-    #ffffff 100%
-  );
-}
-</style> -->
 <script>
-export default {
-  name: "SignInPage",
-};
+import { useAuthStore } from "../stores/example-store";
+import { defineComponent, ref, computed } from "vue";
+export default defineComponent({
+  name: "SignUpPage",
+
+  setup() {
+    const authStore = useAuthStore();
+    const userLists = computed(() => authStore.signupUserLists);
+    const comfirm = ref();
+    const userData = ref({
+      name: "",
+      username: "",
+      password: "",
+      confirm_password: "",
+    });
+    const onSignup = () => {
+      const payload = userData.value;
+      authStore.onSignupLocal(payload);
+    };
+    return {
+      comfirm,
+      userData,
+      onSignup,
+      userLists,
+    };
+  },
+});
 </script>
