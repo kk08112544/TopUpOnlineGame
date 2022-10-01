@@ -10,12 +10,12 @@
       <div class="flex-col flex">
         <div class="space-y-5 mb-10 text-center">
           <span class="text-[30px]">Sign In</span>
+
           <q-input
-            size="large"
             squared
             outlined
-            v-model="text"
-            label="Enter Username"
+            v-model="name"
+            label="Username"
             bg-color="white"
             class="w-[300px] t-[300px]"
           >
@@ -25,11 +25,11 @@
           </q-input>
 
           <q-input
-            size="large"
             squared
             outlined
-            v-model="text"
-            label="Enter Password"
+            type="password"
+            v-model="password"
+            label="Password"
             bg-color="white"
             class="w-[300px] t-[300px]"
           >
@@ -38,7 +38,6 @@
             </template>
           </q-input>
         </div>
-
         <div class="flex w-full gap-3">
           <q-btn
             class="flex-1"
@@ -63,32 +62,24 @@
     </div>
   </q-page>
 </template>
-<script>
-import { useAuthStore } from "../stores/example-store";
-import { defineComponent, ref, computed } from "vue";
-export default defineComponent({
-  name: "SignUpPage",
 
-  setup() {
-    const authStore = useAuthStore();
-    const userLists = computed(() => authStore.signupUserLists);
-    const comfirm = ref();
-    const userData = ref({
-      name: "",
-      username: "",
-      password: "",
-      confirm_password: "",
-    });
-    const onSignup = () => {
-      const payload = userData.value;
-      authStore.onSignupLocal(payload);
-    };
+<script>
+export default {
+  data() {
     return {
-      comfirm,
-      userData,
-      onSignup,
-      userLists,
+      name: null,
+      password: null,
     };
   },
-});
+
+  methods: {
+    onSubmit() {
+      console.log("click submit");
+    },
+    onReset() {
+      this.name = null;
+      this.password = null;
+    },
+  },
+};
 </script>
