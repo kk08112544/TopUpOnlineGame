@@ -16,7 +16,12 @@
           label="Enter Name"
           bg-color="white"
           class="w-[300px] t-[300px]"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon name="person" />
+          </template>
+        </q-input>
+
         <q-input
           square
           outlined
@@ -24,7 +29,11 @@
           label="Enter Username"
           bg-color="white"
           class="w-[300px] t-[300px]"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon name="person" />
+          </template>
+        </q-input>
       </div>
       <div class="flex-row flex gap-3 justify-center items-center">
         <q-input
@@ -34,15 +43,24 @@
           label="Enter Password"
           bg-color="white"
           class="w-[300px] t-[300px]"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon name="lock" />
+          </template>
+        </q-input>
+
         <q-input
           square
           outlined
-          v-model="comfirmPassword"
-          label="Confirm Password"
+          v-model="userData.confirm_password"
+          label=" Confirm password"
           bg-color="white"
           class="w-[300px] t-[300px]"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon name="lock" />
+          </template>
+        </q-input>
       </div>
     </div>
     <div class="flex-row">
@@ -52,6 +70,7 @@
     </div>
   </q-page>
 </template>
+<script></script>
 <!-- <style scoped>
 .bg {
   background: radial-gradient(
@@ -74,18 +93,19 @@ export default defineComponent({
   setup() {
     const authStore = useAuthStore();
     const userLists = computed(() => authStore.signupUserLists);
-    const comfirmPassword = ref();
+    const comfirm = ref();
     const userData = ref({
       name: "",
       username: "",
       password: "",
+      confirm_password: "",
     });
     const onSignup = () => {
       const payload = userData.value;
       authStore.onSignupLocal(payload);
     };
     return {
-      comfirmPassword,
+      comfirm,
       userData,
       onSignup,
       userLists,
