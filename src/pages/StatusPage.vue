@@ -13,8 +13,8 @@
       <span class="text-[20px] text-center">Your Status is Pending</span>
     </div>
     <div class="flex-row">
-      <q-btn color="red" icon="arrow_back" no-caps
-        ><span class="px-10">Back</span></q-btn
+      <q-btn color="red" no-caps clickable v-ripple to="/His"
+        ><span class="px-10">Transaction History</span></q-btn
       >
     </div>
   </q-page>
@@ -25,4 +25,6 @@
     inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
-<script></script>
+<script>
+
+</script>

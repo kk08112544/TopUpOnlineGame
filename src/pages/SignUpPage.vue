@@ -1,7 +1,6 @@
 <template>
   <q-page
     class="flex justify-center items-center bg flex-col gap-20 w-full bg-[#B18BEF] h-[100vh]"
-    v-if="userData"
   >
     {{ userLists }}
     <div class="flex-row">
@@ -12,7 +11,7 @@
         <q-input
           square
           outlined
-          v-model="userData.name"
+          v-model="name"
           label="Enter Name"
           bg-color="white"
           class="w-[300px] t-[300px]"
@@ -25,7 +24,7 @@
         <q-input
           square
           outlined
-          v-model="userData.username"
+          v-model="username"
           label="Enter Username"
           bg-color="white"
           class="w-[300px] t-[300px]"
@@ -39,7 +38,7 @@
         <q-input
           square
           outlined
-          v-model="userData.password"
+          v-model="password"
           label="Enter Password"
           bg-color="white"
           class="w-[300px] t-[300px]"
@@ -52,7 +51,7 @@
         <q-input
           square
           outlined
-          v-model="userData.confirm_password"
+          v-model="confirm_password"
           label=" Confirm password"
           bg-color="white"
           class="w-[300px] t-[300px]"
@@ -86,29 +85,46 @@
 </style> -->
 <script>
 import { useAuthStore } from "../stores/example-store";
+import { useRouter } from "vue-router";
 import { defineComponent, ref, computed } from "vue";
 export default defineComponent({
   name: "SignUpPage",
   // {} object
   setup() {
+    const router = useRouter();
     const authStore = useAuthStore();
     const userLists = computed(() => authStore.signupUserLists);
     const comfirm = ref();
-    const userData = ref({
-      name: "",
-      username: "",
-      password: "",
-      confirm_password: "",
-    });
-    const onSignup = () => {
-      const payload = userData.value;
-      authStore.onSignupLocal(payload);
+
+    const name = ref("");
+    const username = ref("");
+    const password = ref("");
+    const confirm_password = ref("");
+
+    const onSignup = async () => {
+      const payload = {
+        name: name.value,
+        username: username.value,
+        password: password.value,
+      };
+      await authStore.onSignupLocal(payload);
+      router.push({ path: "SignIn" });
+      // console.log(payload);
+      // if (payload) {
+      //   authStore.onSelectedUser(payload);
+      //   router.push({ path: "/" });
+      // } else {
+
+      // }
     };
     return {
       comfirm,
-      userData,
       onSignup,
       userLists,
+      name,
+      username,
+      password,
+      confirm_password,
     };
   },
 });
