@@ -6,7 +6,7 @@
       <span class="text-[35px]">Transaction History</span>
 
       <div
-        class="q-pa-md rounded-[20px] h-[500px] w-full max-w-[950px] space-y-5 mb-10"
+        class="q-pa-md rounded-[0px] h-[250px] w-full max-w-[550px] space-y-5 mb-6 q-pa-md row items-center q-gutter-md"
       >
         <q-table
           title="Recent Payment"
@@ -17,11 +17,13 @@
           hide-bottom
           class="bg-white/50"
         />
-        <div class="flex-row space-y-5">
-          <q-btn color="red" icon="arrow_back" no-caps
-            ><span class="px-10">Back</span></q-btn
-          >
-        </div>
+      </div>
+      <br />
+      <br />
+      <div class="flex-row space-y-5 justify-center items-center">
+        <q-btn color="red" no-caps icon="arrow_back" clickable v-ripple to="/"
+          ><span class="px-10">Back</span>
+        </q-btn>
       </div>
     </div>
   </q-page>
@@ -45,31 +47,31 @@ const columns = [
 const rows = [
   {
     name: "valorant 1,945 Points",
-    fat: "Payment",
+    fat: "Promptpay",
     carbs: "Mar 20, 2021",
     protein: "-450 Baht",
-    status: "Pending",
+    status: "pending",
   },
   {
     name: "Recharge failed",
-    fat: "Refund",
+    fat: "Truemoney",
     carbs: "Mar 20, 2021",
     protein: "+1000 Baht",
-    status: "completed",
+    status: "pending",
   },
   {
     name: "Top up game rov",
-    fat: "Payment",
+    fat: "Paypal",
     carbs: "Mar 20, 2021",
     protein: "-1000 Baht",
-    status: "rejected",
+    status: "pending",
   },
   {
     name: "Give away free points",
     fat: "Credit",
     carbs: "Mar 19, 2021",
     protein: "+ 10 B",
-    status: "Pending",
+    status: "Completed",
   },
 ];
 
