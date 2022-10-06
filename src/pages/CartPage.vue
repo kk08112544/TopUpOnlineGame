@@ -20,13 +20,7 @@
           <span class="text-[35px]">Fill UID</span>
           <br>
           <div class="row">
-            <q-input square label="Your UID" type="text" outlined></q-input>
-            <q-btn color="primary">
-              Hover
-              <!-- <q-tooltip :offset="[10, 10]">
-                <q-img src="game_pic/APEX.png" class="w-[300px] h-[170px]" />
-              </q-tooltip> -->
-            </q-btn>
+            <q-input square label="Your UID" type="text" outlined v-model="uid"></q-input>
           </div>
         </div>
         <div
@@ -87,10 +81,8 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-
 export default defineComponent({
   name: "TopUpDetailsPage",
-
   setup() {
     const ApexCoin = [
       {
@@ -114,7 +106,8 @@ export default defineComponent({
         baht: "(400 Bahts)",
       },
     ];
-    return { ApexCoin };
+    const uid=ref();
+    return { ApexCoin,uid };
   },
 });
 </script>
