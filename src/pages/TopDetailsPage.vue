@@ -1,10 +1,11 @@
 <template>
   <q-page>
     <div
-      class="w-full bg-[#131313] h-[201px] flex items-center justify-center gap-5"
+      class="w-full bg-[#f9b805] h-[201px] flex items-center justify-center gap-5"
     >
+    <q-img src="icons/logo.png" class="w-[100px] h-[100px]"></q-img>
       <q-img src="icons/joingame.png" class="w-[50px] h-[50px]"></q-img>
-      <span class="text-[50px] text-white">Game Details</span>
+      <span class="text-[50px] text-black">Game Details</span>
     </div>
     <div class="flex-row flex w-full bg gap-5 p-11 justify-center items-center">
       <div class="flex-col flex w-[300px]">
@@ -19,13 +20,14 @@
         <div class="bg-[#FFFFFF] w-full rounded-[90px] px-14 py-8 mb-3">
           <span class="text-[35px]">Fill UID</span>
           <div class="row">
-            <q-input rounded label="Your UID" type="text" outlined></q-input>
-            <q-btn color="primary">
+            <!-- <q-input rounded label="Your UID" type="text" outlined></q-input> -->
+            <q-input square label="Your UID" type="text" outlined v-model="uid"></q-input>
+            <!-- <q-btn color="primary">
               Hover
               <q-tooltip :offset="[10, 10]">
                 <q-img src="game_pic/APEX.png" class="w-[300px] h-[170px]" />
               </q-tooltip>
-            </q-btn>
+            </q-btn> -->
           </div>
         </div>
         <div
@@ -53,8 +55,27 @@
             </div>
           </div>
         </div>
-        <div class="flex justify-center">
-          <q-btn label="Backs" type="text" outlined></q-btn>
+        <div class="flex w-full gap-3 justify-center">
+          <q-btn
+            color="red"
+            no-caps
+            label="Add to Cart"
+            type="text"
+            clickable
+            v-ripple
+            to="/Cart"
+            outlined
+          ></q-btn>
+          <q-btn
+            color="green"
+            no-caps
+            label="Back"
+            type="text"
+            clickable
+            v-ripple
+            to="/"
+            outlined
+          ></q-btn>
         </div>
       </div>
     </div>
@@ -70,37 +91,28 @@ export default defineComponent({
   setup() {
     const ApexCoin = [
       {
-        png: "apex_coin/coin1.png",
+        png: "apex-coin/coin1.png",
         gold: "Pack 100 Gold",
         baht: "(100 Bahts)",
       },
       {
-        png: "apex_coin/coin2.png",
+        png: "apex-coin/coin2.png",
         gold: "Pack 200 Gold",
         baht: "(200 Bahts)",
       },
       {
-        png: "apex_coin/coin3.png",
+        png: "apex-coin/coin3.png",
         gold: "Pack 300 Gold",
         baht: "(300 Bahts)",
       },
       {
-        png: "apex_coin/coin4.png",
-        gold: "Pack 400 Gold",
-        baht: "(400 Bahts)",
-      },
-      {
-        png: "apex_coin/coin4.png",
-        gold: "Pack 400 Gold",
-        baht: "(400 Bahts)",
-      },
-      {
-        png: "apex_coin/coin4.png",
+        png: "apex-coin/coin4.png",
         gold: "Pack 400 Gold",
         baht: "(400 Bahts)",
       },
     ];
-    return { ApexCoin };
+    const uid=ref();
+    return { ApexCoin,uid };
   },
 });
 </script>
